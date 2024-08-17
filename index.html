@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <form action="https://api.sheetmonkey.io/form/i2QyoSV15YwLHpBGgTXUyh" id="quizForm" class="form" method="post">
+    <form name="contact-form"
+        action="https://script.google.com/macros/s/AKfycbzgdteEYdJzMQKPzaa28Jp9S5cgyXWeQNZBn1w5pWJUccQ7kJUA66AC7RaDF2CEDYVH/exec"
+        id="quizForm" class="form" method="post">
         <div class="container">
 
             <div class="top_Sec">
@@ -24,7 +26,7 @@
 
             <div class="form-group">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" class="form-control form-control-input" id="name" placeholder="الاسم" name="name"
+                <input oninput="checkAllQuestions(this)" type="text" class="form-control form-control-input" id="name" placeholder="الاسم" name="Name"
                     required>
             </div>
 
@@ -32,10 +34,14 @@
             <div class="question" id="question1">
                 <p>* كامبين جديده لو اول شحنه جابت ٣ ليد</p>
                 <div class="chose">
-                    <input type="radio" name="question1" value="2" onclick="checkAnswer(1, 'هنشحن', 'هنشحن'); handleClick(this)"> هنشحن<br>
+                    <input type="radio" name="question1" value="2"
+                        onclick="checkAnswer(1, 'هنكمل شحنها', 'هنكمل شحنها'); handleClick(this, 'question1'); checkAllQuestions(this , 'add_2')"> هنكمل
+                    شحنها<br>
                 </div>
                 <div class="chose">
-                    <input type="radio" name="question1" value="2" onclick="checkAnswer(1, 'مش هنشحن' , 'x مش هشحن'); handleClick(this)"> مش هنشحن<br>
+                    <input type="radio" name="question1" value="2"
+                        onclick="checkAnswer(1, 'هنوقف شحنها' , 'x مش هشحن'); handleClick(this, 'question1'); checkAllQuestions(this)"> هنوقف
+                    شحنها<br>
                 </div>
 
             </div>
@@ -44,102 +50,275 @@
                 <p>* الشحنه التانيه بتكون قيمتها كام</p>
 
                 <div class="chose">
-                <input type="radio" name="question2" value="16" onclick="checkAnswer(2, 'x 300', '300'); handleClick2(this)"> 300<br>
-            </div>
-            <div class="chose">
-                <input type="radio" name="question2" value="17" onclick="checkAnswer(2, '150', '150'); handleClick2(this)"> 150<br>
-            </div>
-            <div class="chose">
-                <input type="radio" name="question2" value="18" onclick="checkAnswer(2, 'x 450', '450'); handleClick2(this)"> 450<br>
-            </div>
-            
+                    <input type="radio" name="question2" value="16"
+                        onclick="checkAnswer(2, 'x 300', '300'); handleClick(this, 'question2'); checkAllQuestions(this)"> 300<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="question2" value="17"
+                        onclick="checkAnswer(2, '150', '150'); handleClick(this, 'question2'); checkAllQuestions(this , false , 'add3')"> 150<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="question2" value="18"
+                        onclick="checkAnswer(2, 'x 450', '450'); handleClick(this, 'question2'); checkAllQuestions(this)"> 450<br>
+                </div>
+
             </div>
 
             <div class="question" id="question3" style="display:none;">
                 <p>* لو تاني شحنه مجبتش ليد هنعمل ايه </p>
 
                 <div class="chose">
-                    <input type="radio" name="question3" value="4" onclick="checkAnswer(3, 'x هشحن 150', ' هشحن 150'); handleClick3(this)"> هشحن 150<br>
+                    <input type="radio" name="question3" value="4"
+                        onclick="checkAnswer(3, 'x هشحن 150', ' هشحن 150'); handleClick(this, 'question3'); checkAllQuestions(this)"> هشحن
+                    150<br>
                 </div>
-                
+
                 <div class="chose">
-                    <input type="radio" name="question3" value="5" onclick="checkAnswer(3, 'x هشحن 300 ', ' هشحن 300'); handleClick3(this)"> هشحن 300<br>
+                    <input type="radio" name="question3" value="5"
+                        onclick="checkAnswer(3, 'x هشحن 300 ', ' هشحن 300'); handleClick(this, 'question3'); checkAllQuestions(this)"> هشحن
+                    300<br>
                 </div>
-                
+
                 <div class="chose">
-                    <input type="radio" name="question3" value="6" onclick="checkAnswer(3, 'مش هنشحن', 'مش هنشحن'); handleClick3(this)"> مش هنشحن<br>
+                    <input type="radio" name="question3" value="6"
+                        onclick="checkAnswer(3, 'مش هنشحن', 'مش هنشحن'); handleClick(this, 'question3'); checkAllQuestions(this)"> مش هنشحن<br>
                 </div>
+            </div>
+
+
+
+
+
+            <div class="question">
+                <p>* الادني لاجمالي عدد اليدز فى اول شحنتين كام علشان اقدر اكمل فى الكامبين ...؟ </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer4" value="1" onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 1<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer4" value="2" onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 2<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer4" value="3" onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 3<br>
                 </div>
 
 
+                <div class="chose">
+                    <input type="radio" name="answer4" value="4" onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 4<br>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="question">
+                <p>* عند اجمالى شحن الكامبين ب ٤٥٠ و جايبه ٨ ليد
+                    هنشحن ولا لأ ... </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer5" value="هتتشحن" onclick="handleClick(this, 'answer5','change'); checkAllQuestions(this)">
+                    هتتشحن <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer5" value=" مش هتتشحن"
+                        onclick="handleClick(this, 'answer5','change'); checkAllQuestions(this)"> مش هتتشحن <br>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="question">
+                <p>* كامبين قديمه المفروض تتشحن من الساعه كام الى الساعه كام بحد اقصي </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer6" value="من ٦ : ٧ "
+                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٦ : ٧ <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer6" value="من ٧ الى ٩  "
+                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٧ الى ٩ <br>
+                </div>
+
+
+                <div class="chose">
+                    <input type="radio" name="answer6" value=" من ٧ الى١٢  "
+                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٧ الى١٢ <br>
+                </div>
+
+
+            </div>
+
+
+            <div class="question">
+                <p>* مقاس كريتف الصورة حد ادني كام و حد اقصي كام ؟ </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer7" value="٦٠٠ : ١٢٠٠ "
+                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١٢٠٠ <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer7" value=" ٦٠٠ : ١٠٥٠ "
+                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١٠٥٠ <br>
+                </div>
+
+                <div class="chose">
+                    <input type="radio" name="answer7" value="٦٠٠ : ١١٥٠  "
+                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١١٥٠ <br>
+                </div>
+
+                <div class="chose">
+                    <input type="radio" name="answer7" value="٦٠٠ : ١٢٥٠"
+                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١٢٥٠ <br>
+                </div>
+
+
+            </div>
+
+
+            <div class="question">
+                <p>* مقاس كريتف الفيديو كام ؟ </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer8" value="٤:٣"
+                        onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)">٤:٣<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer8" value="٣:٤ " onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)"> ٣:٤
+                    <br>
+                </div>
+
+                <div class="chose">
+                    <input type="radio" name="answer8" value="٩:١٦" onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)">
+                    ٩:١٦ <br>
+                </div>
+
+                <div class="chose">
+                    <input type="radio" name="answer8" value="١:١" onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)"> ١:١
+                    <br>
+                </div>
+
+            </div>
+
+
+            <div class="question">
+                <p>* الكامبينات الجديده تتشحن الساعه ٧ و ممكن ٨ و ممكن ٩ و ممكن ١٢ ؟</p>
+
+                <div class="chose">
+                    <input type="radio" name="answer9" value="صح " onclick="handleClick(this, 'answer9','change'); checkAllQuestions(this)"> صح
+                    <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer9" value="خطا" onclick="handleClick(this, 'answer9','change'); checkAllQuestions(this)"> خطا
+                    <br>
+                </div>
+
+
+            </div>
+
+
+            <div class="question">
+                <p>* في حالة وجود كامبين قديمة ونتائجها مستقرة هل يمكنني ان اغير مواعيد شحنها ؟ </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer10" value="صح " onclick="handleClick(this, 'answer10','change'); checkAllQuestions(this)"> صح
+                    <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer10" value="خطأ " onclick="handleClick(this, 'answer10','change'); checkAllQuestions(this)">
+                    خطأ <br>
+                </div>
+
+
+            </div>
+
+
+            <div class="question">
+                <p>* قبل مشحن كامبين جديده لازم اتأكد من حاجتبن فى الكامين ايه هم ؟</p>
+
+                <div class="chose chosetext">
+
+                    <textarea oninput="checkAllQuestions(this)" name="answer11" rows="3" id="text_que" required placeholder="اجب هنا ..."></textarea>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="question">
+
+                <img src="img/ques.jpg" alt="">
+                <p>* ماذا نفعل في هذه الحالة التي في الصورة ؟ </p>
+
+                <div class="chose">
+                    <input type="radio" name="answer12" value="نشحن ١٥٠ جنيه"
+                        onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)"> نشحن ١٥٠ جنيه <br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="answer12" value="مش هنشحن" onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)">
+                    مش هنشحن <br>
+                </div>
+
+                <div class="chose">
+                    <input type="radio" name="answer12" value="نشحن ب ٣٠٠ جنيه"
+                        onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)"> نشحن ب ٣٠٠ جنيه <br>
+                </div>
+            </div>
 
             <input type="hidden" name="answer1" id="hiddenAnswer1">
             <input type="hidden" name="answer2" id="hiddenAnswer2">
             <input type="hidden" name="answer3" id="hiddenAnswer3">
 
-
-
-
-
             <div class="form">
-
-
-
-                <input id="btnSubmit" class="btn block1-btn form-call" type="submit" value="سـجـل الآن" />
+                <button type="submit" id="submitBtn" class="btn block1-btn form-call disabled" disabled>اجب علي جميع الأسئلة</button>
             </div>
         </div>
         </div>
     </form>
 
+
     <script>
-        let clicked = false; 
+        function handleClick(radio, name, change, value_inp) {
 
-        function handleClick(div) {
-            if (!clicked) { 
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
 
-                clicked = true;
+            if (!change) {
+                radios.forEach(radio => {
+                    radio.classList.add('active');
+                });
 
-                div.parentNode.classList.add('clicked');
+            } else {
+                radios.forEach(radio => {
+                    radio.parentNode.classList.remove('clicked');
+                })
             }
+            radio.parentNode.classList.add('clicked');
         }
 
-        let clicked2 = false; 
-
-function handleClick2(div) {
-    if (!clicked2) { 
-
-        clicked2 = true;
-
-        div.parentNode.classList.add('clicked');
-    }
-}
-
-
-let clicked3 = false; 
-
-function handleClick3(div) {
-    if (!clicked3) { 
-
-        clicked3 = true;
-
-        div.parentNode.classList.add('clicked');
-    }
-}
     </script>
 
+
+
     <script>
+        const scriptURL =
+            "https://script.google.com/macros/s/AKfycbzgdteEYdJzMQKPzaa28Jp9S5cgyXWeQNZBn1w5pWJUccQ7kJUA66AC7RaDF2CEDYVH/exec";
+        let form = document.forms["contact-form"];
 
         let answer2 = true;
         let answer3 = true;
+
         function checkAnswer(questionNumber, chosenAnswer, correctAnswer) {
 
-            if(questionNumber == 2){
+            if (questionNumber == 2) {
                 answer2 = true;
             }
-
-            if(questionNumber == 3){
+            if (questionNumber == 3) {
                 answer3 = true;
-                
             }
 
             document.getElementById('hiddenAnswer' + questionNumber).value = chosenAnswer;
@@ -149,17 +328,12 @@ function handleClick3(div) {
                 if (nextQuestion) {
                     nextQuestion.style.display = 'block';
                 }
-
-                if(questionNumber == 1){
-                answer2 = false
-            }
-
-            if(questionNumber == 2){
-       
-                answer3 = false;
-            }
-            
-
+                if (questionNumber == 1) {
+                    answer2 = false
+                }
+                if (questionNumber == 2) {
+                    answer3 = false;
+                }
             }
 
             var options = document.querySelectorAll('input[name="question' + questionNumber + '"]');
@@ -167,35 +341,103 @@ function handleClick3(div) {
                 option.disabled = true;
             });
 
-            
         }
 
+        document.getElementById('quizForm').addEventListener('submit', function (event) {
+            var answer1 = document.getElementById('hiddenAnswer1').value;
 
-document.getElementById('quizForm').addEventListener('submit', function(event) {
-    var answer1 = document.getElementById('hiddenAnswer1').value;
+            
+            if (answer1 && answer2 && answer3) {
 
-    if (!answer1) {
-        event.preventDefault();
-        alert('برجاء الأجابة علي جميع الأسئلة'); 
-    }
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    fetch(scriptURL, {
+                        method: "POST",
+                        body: new FormData(form),
+                    })
+                        .then((response) => {
+                            window.location.reload();
+                        })
+                        .catch((error) => console.error("Error!", error.message));
 
-
-if (!answer2) {
-    event.preventDefault();
-    alert('برجاء الأجابة علي جميع الأسئلة'); 
-}
-
-
-if (!answer3) {
-    event.preventDefault();
-    alert('برجاء الأجابة علي جميع الأسئلة'); 
-}
-});
-
+                });
+            }
+        });
 
     </script>
 
+
+<script>
+
+const questionNames = ['question1', 'answer4' ,'answer5' ,'answer6' ,'answer7' ,'answer8' ,'answer9' ,'answer10' ,'answer12' ]; // أضف جميع أسماء الأسئلة هنا
+        
+    let inpt = false;
+    let allRadio = false;
+
+    function checkAllQuestions(thise , que2 , que3 ) {
+        // الحصول على جميع مجموعات الأسئلة
     
+        let allAnswered = true;
+
+        let input_Name = document.getElementById("name")
+        let text_ques = document.getElementById("text_que")
+        const submitBtn = document.getElementById('submitBtn');
+
+        console.log(input_Name.value);
+        
+
+        console.log("asddsas");
+
+        if(que2){
+            questionNames.push('question2')
+        }
+        if(que3){
+            questionNames.push('question3')
+        }
+ 
+        
+        // التحقق من كل مجموعة أسئلة
+        questionNames.forEach(name => {
+
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+            const isAnswered = Array.from(radios).some(radio => radio.checked);
+
+            if (!isAnswered) {
+            console.log('disabled55');
+        
+
+            allAnswered = false;
+            }
+        });
+
+        
+        if (input_Name.value != "" && text_ques.value != "") {
+            inpt = true
+            
+        }else if(input_Name.value == "" ||text_ques.value == "" ){
+            inpt = false
+        }
+
+
+        console.log(questionNames);
+        // تمكين أو تعطيل زر الإرسال
+       
+        if (allAnswered && inpt === true) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "ارسال";
+            submitBtn.classList.remove('disabled');
+            console.log("ارسال");
+            console.log(questionNames);
+            
+            
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "اجب علي جميع الأسئلة";
+            submitBtn.classList.add('disabled');
+        }
+    }
+</script>
+
 </body>
 
 </html>
