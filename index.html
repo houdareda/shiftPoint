@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Point</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" href="img/favicon.png" />
+    <!-- file css -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <form action="https://api.sheetmonkey.io/form/i2QyoSV15YwLHpBGgTXUyh" id="quizForm" class="form" method="post">
+        <div class="container">
+
+            <div class="top_Sec">
+                <img src="img/favicon.png" alt="">
+
+                <h3>Make your way , Develop your mind now</h3>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="form-control form-control-input" id="name" placeholder="الاسم" name="name"
+                    required>
+            </div>
+
+
+            <div class="question" id="question1">
+                <p>* كامبين جديده لو اول شحنه جابت ٣ ليد</p>
+                <div class="chose">
+                    <input type="radio" name="question1" value="2" onclick="checkAnswer(1, 'هنشحن', 'هنشحن'); handleClick(this)"> هنشحن<br>
+                </div>
+                <div class="chose">
+                    <input type="radio" name="question1" value="2" onclick="checkAnswer(1, 'مش هنشحن' , 'x مش هشحن'); handleClick(this)"> مش هنشحن<br>
+                </div>
+
+            </div>
+
+            <div class="question" id="question2" style="display:none;">
+                <p>* الشحنه التانيه بتكون قيمتها كام</p>
+
+                <div class="chose">
+                <input type="radio" name="question2" value="16" onclick="checkAnswer(2, 'x 300', '300'); handleClick2(this)"> 300<br>
+            </div>
+            <div class="chose">
+                <input type="radio" name="question2" value="17" onclick="checkAnswer(2, '150', '150'); handleClick2(this)"> 150<br>
+            </div>
+            <div class="chose">
+                <input type="radio" name="question2" value="18" onclick="checkAnswer(2, 'x 450', '450'); handleClick2(this)"> 450<br>
+            </div>
+            
+            </div>
+
+            <div class="question" id="question3" style="display:none;">
+                <p>* لو تاني شحنه مجبتش ليد هنعمل ايه </p>
+
+                <div class="chose">
+                    <input type="radio" name="question3" value="4" onclick="checkAnswer(3, 'x هشحن 150', ' هشحن 150'); handleClick3(this)"> هشحن 150<br>
+                </div>
+                
+                <div class="chose">
+                    <input type="radio" name="question3" value="5" onclick="checkAnswer(3, 'x هشحن 300 ', ' هشحن 300'); handleClick3(this)"> هشحن 300<br>
+                </div>
+                
+                <div class="chose">
+                    <input type="radio" name="question3" value="6" onclick="checkAnswer(3, 'مش هنشحن', 'مش هنشحن'); handleClick3(this)"> مش هنشحن<br>
+                </div>
+                </div>
+
+
+
+            <input type="hidden" name="answer1" id="hiddenAnswer1">
+            <input type="hidden" name="answer2" id="hiddenAnswer2">
+            <input type="hidden" name="answer3" id="hiddenAnswer3">
+
+
+
+
+
+            <div class="form">
+
+
+
+                <input id="btnSubmit" class="btn block1-btn form-call" type="submit" value="سـجـل الآن" />
+            </div>
+        </div>
+        </div>
+    </form>
+
+    <script>
+        let clicked = false; 
+
+        function handleClick(div) {
+            if (!clicked) { 
+
+                clicked = true;
+
+                div.parentNode.classList.add('clicked');
+            }
+        }
+
+        let clicked2 = false; 
+
+function handleClick2(div) {
+    if (!clicked2) { 
+
+        clicked2 = true;
+
+        div.parentNode.classList.add('clicked');
+    }
+}
+
+
+let clicked3 = false; 
+
+function handleClick3(div) {
+    if (!clicked3) { 
+
+        clicked3 = true;
+
+        div.parentNode.classList.add('clicked');
+    }
+}
+    </script>
+
+    <script>
+
+        let answer2 = true;
+        let answer3 = true;
+        function checkAnswer(questionNumber, chosenAnswer, correctAnswer) {
+
+            if(questionNumber == 2){
+                answer2 = true;
+            }
+
+            if(questionNumber == 3){
+                answer3 = true;
+                
+            }
+
+            document.getElementById('hiddenAnswer' + questionNumber).value = chosenAnswer;
+
+            if (chosenAnswer === correctAnswer) {
+                var nextQuestion = document.getElementById('question' + (questionNumber + 1));
+                if (nextQuestion) {
+                    nextQuestion.style.display = 'block';
+                }
+
+                if(questionNumber == 1){
+                answer2 = false
+            }
+
+            if(questionNumber == 2){
+       
+                answer3 = false;
+            }
+            
+
+            }
+
+            var options = document.querySelectorAll('input[name="question' + questionNumber + '"]');
+            options.forEach(option => {
+                option.disabled = true;
+            });
+
+            
+        }
+
+
+document.getElementById('quizForm').addEventListener('submit', function(event) {
+    var answer1 = document.getElementById('hiddenAnswer1').value;
+
+    if (!answer1) {
+        event.preventDefault();
+        alert('برجاء الأجابة علي جميع الأسئلة'); 
+    }
+
+
+if (!answer2) {
+    event.preventDefault();
+    alert('برجاء الأجابة علي جميع الأسئلة'); 
+}
+
+
+if (!answer3) {
+    event.preventDefault();
+    alert('برجاء الأجابة علي جميع الأسئلة'); 
+}
+});
+
+
+    </script>
+
+    
+</body>
+
+</html>
