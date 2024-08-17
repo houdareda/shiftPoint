@@ -38,6 +38,19 @@ body{
     font-size: 18px;
     color: #Fff;
     margin-bottom: 10px;
+    position: relative;
+    padding-right: 10px;
+}
+.question p::after{
+    content: '*';
+    font-size: 28px;
+    position: absolute;
+    color: #c592ff;
+    font-weight: bold;
+    top: -5px;
+    right: -6px;
+    width: 10px;
+    height: 10px;
 }
 
 
