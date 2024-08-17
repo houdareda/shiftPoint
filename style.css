@@ -131,7 +131,7 @@ body{
 }
 
 form{
-    max-width: 450px;
+    max-width: 700px;
     margin: 20px auto;
 }
 
@@ -140,6 +140,14 @@ form{
     opacity: 0.5;
     cursor: not-allowed;
     animation: none;
+}
+.question{
+    padding: 10px 10px;
+        border-radius: 10px;
+        background: #ffffff18;
+        backdrop-filter: blur(10px); /* تطبيق تأثير البلور */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid #9539c041;
 }
 
 .question img{
@@ -165,3 +173,23 @@ form{
     padding: 3px 10px;
 }
 
+
+@media (min-width:800px) {
+    .question{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: #ffffff18;
+        backdrop-filter: blur(10px); /* تطبيق تأثير البلور */
+            -webkit-backdrop-filter: blur(10px);
+    }
+
+    .question p{
+        width: 100%;
+    }
+    .question .chose{
+    
+    }
+}
