@@ -4,500 +4,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shift Point</title>
+    <title>Marketing Team</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="icon" href="img/favicon.png" />
     <!-- file css -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 
 </head>
 
 <body>
+
+
+    <div class="head_sec">
+        <img src="img/favicon.png" alt="">
+    </div>
     <form name="contact-form"
         action="https://script.google.com/macros/s/AKfycbzgdteEYdJzMQKPzaa28Jp9S5cgyXWeQNZBn1w5pWJUccQ7kJUA66AC7RaDF2CEDYVH/exec"
         id="quizForm" class="form" method="post">
         <div class="container">
+           
 
-            <div class="top_Sec">
-                <img src="img/favicon.png" alt="">
+            <div class="form-group">
 
-                <h3>Make your way , Develop your mind now</h3>
+                <label for="name"><i class="fa-solid fa-user"></i>اختر اسم الأيجنت</label>
+                <input list="nameList" id="name" name="Name Agent"  class="form-control form-control-input name_ag_inp" placeholder="الاسم" required />
+                
+                <datalist id="nameList" class="name_Agent1">
+         
+                </datalist>
+       
             </div>
 
             <div class="form-group">
-                <i class="fa-solid fa-user"></i>
-                <input oninput="checkAllQuestions(this)" type="text" class="form-control form-control-input" id="name"
-                    placeholder="الاسم" name="Name" required>
+                <label for="datee"><i class="fa-solid fa-calendar-days"></i> تاريخ اليوم </label>
+                <input type="date" id="datee" name="date"  class="form-control form-control-input" required />
+            </div>
+
+
+            <div class="form-group">
+                
+                <label><i class="fa-solid fa-money-bill-1-wave"></i> مصروفات اليوم كلها</label>
+                <input type="number" maxlength="6" name="Total expenses"  class="form-control form-control-input"  placeholder="توتال مصاريف اليوم"/>
+       
             </div>
 
 
 
+            <div class="form-group">
+                
+                <label for="masrofat_P"><i class="fa-solid fa-wallet"></i>  مصروفات  شخصية </label>
+                <input type="number" name="Personal expenses"  maxlength="6" class="form-control form-control-input" placeholder="المصروفات الشخصية" />
+                
+       
+            </div>
 
-
-
-
-
-            <div class="question">
-                <p> الحد الادني لاجمالي عدد اليدز فى اول شحنتين كام علشان اقدر اكمل فى الكامبين ...؟ </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer4" value="1"
-                        onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 1 ليد<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer4" value="2"
-                        onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 2 ليد<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer4" value="3"
-                        onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 3 ليد<br>
-                </div>
-
-
-                <div class="chose">
-                    <input type="radio" name="answer4" value="4"
-                        onclick="handleClick(this, 'answer4','change'); checkAllQuestions(this)"> 4 ليد<br>
-                </div>
-
+            <div class="form-group">
+                
+                <label for="Markt-1"><i class="fa-solid fa-sack-dollar"></i>  مصروفات  اعلانات Markting 1 </label>
+                <input type="number" id="Markt-1" name="expenses Markt-1"   maxlength="6" class="form-control form-control-input" placeholder="المصروفات اعلانية"  />
+                
+       
             </div>
 
 
-
-
-
-            <div class="question">
-                <p>  عند اجمالى شحن الكامبين ب ٤٥٠ و جايبه ٨ ليد
-                    هنشحن ولا لأ ... </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer5" value="هتتشحن"
-                        onclick="handleClick(this, 'answer5','change'); checkAllQuestions(this)">
-                    هتتشحن <br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer5" value=" مش هتتشحن"
-                        onclick="handleClick(this, 'answer5','change'); checkAllQuestions(this)"> مش هتتشحن <br>
-                </div>
-
-
+            <div class="form-group">
+                
+                <label for="Markt-2"><i class="fa-solid fa-sack-dollar"></i>     مصروفات  اعلانات Markting 2 </label>
+                <input type="number" id="Markt-2" name="expenses Markt-2"   maxlength="6"  class="form-control form-control-input" placeholder="المصروفات اعلانية"  />
+                
+       
             </div>
 
 
+    
 
 
-            <div class="question">
-                <p> كامبين قديمه المفروض تتشحن من الساعه كام الى الساعه كام بحد اقصي </p>
+         
 
-                <div class="chose">
-                    <input type="radio" name="answer6" value="من ٦ : ٧ "
-                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٦ : ٧ <br>
+
+            <div class="show_div">
+                <label>
+                  <input type="checkbox" id="toggleCheckbox" onclick="toggleInputs()"> 
+                  <i class="fa-solid fa-money-bill-transfer"></i>
+                  تحويل لموظف اخر  
+                </label>
+              </div>
+              
+              
+              <div id="inputContainer" class="hidden inputContainer">
+
+
+                <div class="form-group">
+                
+                    <label for="Recipient"><i class="fa-solid fa-user-pen"></i> اختر اسم الموظف المحول له </label>
+                    <input list="suggestions2" id="Recipient" name="Recipient Name"  class="form-control form-control-input" placeholder="اسم الموظف المحول له"  />
+                    
+                    <datalist id="suggestions2" class="name_Agent2">
+        
+                    </datalist>
+           
+           
                 </div>
-                <div class="chose">
-                    <input type="radio" name="answer6" value="من ٧ الى ٩  "
-                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٧ الى ٩ <br>
+
+
+
+
+                <div class="form-group">
+                
+                    <label for="RecipientMony"><i class="fa-solid fa-money-bill-trend-up"></i>  المبلغ الذي تريد تحويله للموظف</label>
+                    <input list="number" id="RecipientMony" maxlength="6" name="Recipient Mony"  class="form-control form-control-input" placeholder="ادخل المبلغ المحول   "  />
+           
+                </div>
+                
+              </div>
+              
+
+
+
+
+
+
+
+              <div class="show_div">
+                <label>
+                  <input type="checkbox" id="toggleCheckbox2" onclick="toggleInputs2()"> 
+                  <i class="fa-solid fa-hand-holding-dollar"></i>
+                 طلب فلوس
+                </label>
+              </div>
+              
+              
+              <div id="inputContainer2" class="hidden inputContainer">
+                
+
+
+                <div class="form-group">
+                
+                    <label for="Requestedamount"><i class="fa-solid fa-dollar-sign"></i> المبلغ الذي تريده</label>
+                    <input list="number" id="Requestedamount" name="Requested amount" maxlength="6" class="form-control form-control-input" placeholder="ادخل المبلغ المطلوب"  />
+           
                 </div>
 
 
-                <div class="chose">
-                    <input type="radio" name="answer6" value=" من ٧ الى١٢  "
-                        onclick="handleClick(this, 'answer6','change'); checkAllQuestions(this)"> من ٧ الى١٢ <br>
+                
+                <div class="form-group">
+                
+                    <label for="Waleet"><i class="fa-solid fa-user-pen"></i> اختر رقم المحفظة </label>
+                    <input list="suggestions3" id="Waleet" name="Number Wallet"  class="form-control form-control-input" placeholder="   اختر رقم المخفظة"  />
+                    
+                    <datalist id="suggestions3" class="phones_agent">
+
+                    </datalist>
+           
+           
                 </div>
+                
+              </div>
 
 
+
+              <div class="form-group">
+                
+                <label for="Password"><i class="fa-solid fa-lock"></i>   الرقم السري الخاص بك</label>
+                <input id="Password" class="form-control form-control-input password_inp" placeholder="ادخل الباسورد "  />
+       
             </div>
 
+   
+                <div id="eror"></div>
 
-            <div class="question">
-                <p> مقاس كريتف الصورة حد ادني كام و حد اقصي كام ؟ </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer7" value="٦٠٠ : ١٢٠٠ "
-                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١٢٠٠ <br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer7" value=" ٦٠٠ : ١٠٨٠  "
-                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٦٠٠ : ١٠٨٠  <br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="answer7" value="٧٠٠ : ١١٥٠  "
-                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٧٠٠ : ١١٥٠ <br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="answer7" value="٧٠٠ : ١٢٥٠"
-                        onclick="handleClick(this, 'answer7','change'); checkAllQuestions(this)"> ٧٠٠ : ١٢٥٠ <br>
-                </div>
-
-
-            </div>
-
-
-            <div class="question">
-                <p> مقاس كريتف الفيديو كام ؟ </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer8" value="٤:٣"
-                        onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)">٤:٣<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer8" value="٣:٤ "
-                        onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)"> ٣:٤
-                    <br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="answer8" value="٩:١٦"
-                        onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)">
-                    ٩:١٦ <br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="answer8" value="١:١"
-                        onclick="handleClick(this, 'answer8','change'); checkAllQuestions(this)"> ١:١
-                    <br>
-                </div>
-
-            </div>
-
-
-            <div class="question">
-                <p> الكامبينات الجديده تتشحن الساعه ٧ و ممكن ٨ و ممكن ٩ و ممكن ١٢ ؟</p>
-
-                <div class="chose">
-                    <input type="radio" name="answer9" value="صح "
-                        onclick="handleClick(this, 'answer9','change'); checkAllQuestions(this)"> صح
-                    <br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer9" value="خطا"
-                        onclick="handleClick(this, 'answer9','change'); checkAllQuestions(this)"> خطا
-                    <br>
-                </div>
-
-
-            </div>
-
-
-            <div class="question">
-                <p> في حالة وجود كامبين قديمة ونتائجها مستقرة هل يمكنني ان اغير مواعيد شحنها ؟ </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer10" value="صح "
-                        onclick="handleClick(this, 'answer10','change'); checkAllQuestions(this)"> صح
-                    <br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer10" value="خطأ "
-                        onclick="handleClick(this, 'answer10','change'); checkAllQuestions(this)">
-                    خطأ <br>
-                </div>
-
-
-            </div>
-
-
-            <div class="question">
-                <p> قبل مشحن كامبين جديده لازم اتأكد من حاجتبن فى كامبين ايه هم ؟</p>
-
-                <div class="chose chosetext">
-
-                    <textarea oninput="checkAllQuestions(this)" name="answer11" rows="3" id="text_que" required
-                        placeholder="اجب هنا ..."></textarea>
-                </div>
-
-
-
-            </div>
-
-
-            <div class="question">
-
-                <img src="img/ques.jpg" alt="">
-
-                <p> ماذا نفعل في هذه الحالة التي في الصورة ؟ </p>
-
-                <div class="chose">
-                    <input type="radio" name="answer12" value="نشحن ١٥٠ جنيه"
-                        onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)"> نشحن ١٥٠ جنيه <br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="answer12" value="مش هنشحن"
-                        onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)">
-                    مش هنشحن <br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="answer12" value="نشحن ب ٣٠٠ جنيه"
-                        onclick="handleClick(this, 'answer12','change'); checkAllQuestions(this)"> نشحن ب ٣٠٠ جنيه <br>
-                </div>
-            </div>
-
-
-            <div class="question" id="question1">
-                <p> كامبين جديده لو اول شحنه جابت ٣ ليد</p>
-                <div class="chose">
-                    <input type="radio" name="question1" value="2"
-                        onclick="checkAnswer(1, 'هنكمل شحنها', 'هنكمل شحنها'); handleClick(this, 'question1'); checkAllQuestions(this , 'add_2')">
-                    هنكمل
-                    شحنها<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="question1" value="2"
-                        onclick="checkAnswer(1, 'هنوقف شحنها' , 'x مش هشحن'); handleClick(this, 'question1'); checkAllQuestions(this)">
-                    هنوقف
-                    شحنها<br>
-                </div>
-
-            </div>
-
-            <div class="question" id="question2" style="display:none;">
-                <p> الشحنه التانيه بتكون قيمتها كام</p>
-
-                <div class="chose">
-                    <input type="radio" name="question2" value="16"
-                        onclick="checkAnswer(2, 'x 300', '300'); handleClick(this, 'question2'); checkAllQuestions(this)">
-                    300<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="question2" value="17"
-                        onclick="checkAnswer(2, '150', '150'); handleClick(this, 'question2'); checkAllQuestions(this , false , 'add3')">
-                    150<br>
-                </div>
-                <div class="chose">
-                    <input type="radio" name="question2" value="18"
-                        onclick="checkAnswer(2, 'x 450', '450'); handleClick(this, 'question2'); checkAllQuestions(this)">
-                    450<br>
-                </div>
-
-            </div>
-
-
-
-            <div class="question" id="question3" style="display:none;">
-                <p>   لو تاني شحنة مجبتش ولا ليد هنعمل ايه ؟</p>
-
-                <div class="chose">
-                    <input type="radio" name="question3" value="4"
-                        onclick="checkAnswer(3, 'x هشحن 150', ' هشحن 150'); handleClick(this, 'question3'); checkAllQuestions(this)">
-                    هشحن
-                    150<br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="question3" value="5"
-                        onclick="checkAnswer(3, 'x هشحن 300 ', ' هشحن 300'); handleClick(this, 'question3'); checkAllQuestions(this)">
-                    هشحن
-                    300<br>
-                </div>
-
-                <div class="chose">
-                    <input type="radio" name="question3" value="6"
-                        onclick="checkAnswer(3, 'مش هنشحن', 'مش هنشحن'); handleClick(this, 'question3'); checkAllQuestions(this)">
-                    مش هنشحن<br>
-                </div>
-            </div>
-
-
-            <input type="hidden" name="answer1" id="hiddenAnswer1">
-            <input type="hidden" name="answer2" id="hiddenAnswer2">
-            <input type="hidden" name="answer3" id="hiddenAnswer3">
-
-            <div class="form">
-                <button type="submit" id="submitBtn" class="btn block1-btn form-call disabled" disabled>اجب علي جميع
-                     </button>
-            </div>
+                <button type="submit" id="submitBtn" class="btn block1-btn form-call"> اضـافة </button>
+         
         </div>
         </div>
     </form>
 
 
+
+<!-- 
     <script>
-        function handleClick(radio, name, change, value_inp) {
+function toggleInputs() {
+  var inputContainer = document.getElementById('inputContainer');
+  
+  if (document.getElementById('toggleCheckbox').checked) {
+    inputContainer.classList.add('show');
+  } else {
+    inputContainer.classList.remove('show');
+  }
+}
 
-            const radios = document.querySelectorAll(`input[name="${name}"]`);
+function toggleInputs2() {
+  var inputContainer2 = document.getElementById('inputContainer2');
 
-            if (!change) {
-                radios.forEach(radio => {
-                    radio.classList.add('active');
-                });
-
-            } else {
-                radios.forEach(radio => {
-                    radio.parentNode.classList.remove('clicked');
-                })
-            }
-            radio.parentNode.classList.add('clicked');
-        }
+  var inputContainer2 = document.getElementById('inputContainer2');
+  
+  if (document.getElementById('toggleCheckbox2').checked) {
+    inputContainer2.classList.add('show');
+  } else {
+    inputContainer2.classList.remove('show');
+  }
+}
 
     </script>
+    
 
-
-
-    <script>
-        const scriptURL =
-            "https://script.google.com/macros/s/AKfycbzgdteEYdJzMQKPzaa28Jp9S5cgyXWeQNZBn1w5pWJUccQ7kJUA66AC7RaDF2CEDYVH/exec";
-        let form = document.forms["contact-form"];
-
-        let answer2 = true;
-        let answer3 = true;
-
-        function checkAnswer(questionNumber, chosenAnswer, correctAnswer) {
-
-            if (questionNumber == 2) {
-                answer2 = true;
-            }
-            if (questionNumber == 3) {
-                answer3 = true;
-            }
-
-            document.getElementById('hiddenAnswer' + questionNumber).value = chosenAnswer;
-
-            if (chosenAnswer === correctAnswer) {
-                var nextQuestion = document.getElementById('question' + (questionNumber + 1));
-                if (nextQuestion) {
-                    nextQuestion.style.display = 'block';
-                }
-                if (questionNumber == 1) {
-                    answer2 = false
-                }
-                if (questionNumber == 2) {
-                    answer3 = false;
-                }
-            }
-
-            var options = document.querySelectorAll('input[name="question' + questionNumber + '"]');
-            options.forEach(option => {
-                option.disabled = true;
-            });
-
-        }
-
-        document.getElementById('quizForm').addEventListener('submit', (e) => {
-
-            var answer1 = document.getElementById('hiddenAnswer1').value;
-
-
-            if (answer1 && answer2 && answer3) {
-
-                console.log("rasdad");
-
-                e.preventDefault();
-
-                const submitBtn = document.getElementById('submitBtn');
-
-                submitBtn.classList.add("reload")
-
-                submitBtn.innerHTML = `
-                    <div class="loader">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-    <div class="bar4"></div>
-    <div class="bar5"></div>
-    <div class="bar6"></div>
-    <div class="bar7"></div>
-    <div class="bar8"></div>
-    <div class="bar9"></div>
-    <div class="bar10"></div>
-    <div class="bar11"></div>
-    <div class="bar12"></div>
-</div>
-                `
-
-
-
-                console.log("after");
-
-
-                fetch(scriptURL, {
-                    method: "POST",
-                    body: new FormData(form),
-                })
-
-
-                    .then((response) => {
-                        window.location.href = "thanks.html";
-                    })
-                    .catch((error) => console.error("Error!", error.message));
-
-
-
-            }
-        });
-
-    </script>
-
-
-    <script>
-
-        const questionNames = ['question1', 'answer4', 'answer5', 'answer6', 'answer7', 'answer8', 'answer9', 'answer10', 'answer12']; // أضف جميع أسماء الأسئلة هنا
-
-        let inpt = false;
-        let allRadio = false;
-
-        function checkAllQuestions(thise, que2, que3) {
-            // الحصول على جميع مجموعات الأسئلة
-
-            let allAnswered = true;
-
-            let input_Name = document.getElementById("name")
-            let text_ques = document.getElementById("text_que")
-            const submitBtn = document.getElementById('submitBtn');
-
-
-
-
-
-
-            if (que2) {
-                questionNames.push('question2')
-            }
-            if (que3) {
-                questionNames.push('question3')
-            }
-
-
-            // التحقق من كل مجموعة أسئلة
-            questionNames.forEach(name => {
-
-                const radios = document.querySelectorAll(`input[name="${name}"]`);
-                const isAnswered = Array.from(radios).some(radio => radio.checked);
-
-                if (!isAnswered) {
-
-                    allAnswered = false;
-                }
-            });
-
-
-            if (input_Name.value != "" && text_ques.value != "") {
-                inpt = true
-
-            } else if (input_Name.value == "" || text_ques.value == "") {
-                inpt = false
-            }
-
-
-
-            // تمكين أو تعطيل زر الإرسال
-
-            if (allAnswered && inpt === true) {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = "ارسال";
-                submitBtn.classList.remove('disabled');
-             
-
-
-
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = "اجب علي جميع الأسئلة";
-                submitBtn.classList.add('disabled');
-            }
-        }
-    </script>
-
+    <script src="main.js"></script> -->
 </body>
 
 </html>
